@@ -1,0 +1,19 @@
+Package: estacionestiida
+Title: Funciones para leer y analizar datos de estaciones meteorológicas
+Version: 0.0.0.9000
+Authors@R: 
+    person("Tomas", "Taylor", , "ttaylor@mail.austral.edu.ar", role = c("aut", "cre"))
+    person("Alvaro", "Farias", email = "afarias2@mail.austral.edu.ar", role = "aut")
+Description: Este paquete permite descargar, leer y visualizar datos de estaciones del SMN, ademas, permite explorar variables climaticas mediante funciones simples.
+License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Imports: 
+    cli,
+    dplyr,
+    ggplot2,
+    lubridate,
+    readr,
+    utils
