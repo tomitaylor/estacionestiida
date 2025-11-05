@@ -1,0 +1,84 @@
+---
+title: "🌦Introduccion al paquete meteorologico **estacionestiida**"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introducción al paquete estacionestiida}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## 🧭 Propósito del paquete
+
+El paquete **estacionestidita** fue creado con fines didácticos para practicar el desarrollo de paquetes en R.  
+Permite **leer, resumir y graficar** datos meteorológicos del Servicio Meteorológico Nacional (SMN).
+
+---
+
+## ⚙️ Instalación
+
+Podés instalarlo desde GitHub :
+
+```r
+# install.packages("devtools")
+devtools::install_github("tomitaylor/estacionestidita")
+Y luego cargarlo:
+```
+ ```r
+library(estacionestidita)
+ ```
+🌡️ Funciones principales:
+
+1️⃣ leer_datos_estacion()
+
+Lee los datos de una estación meteorológica.
+📥 Descarga el CSV si no existe localmente y devuelve un data frame con las mediciones.
+
+ ```r
+df1 <- leer_datos_estacion("NH0910", "data/NH0910.csv")
+head(df1)
+ ```
+2️⃣ tabla_resumen_temperatura()
+
+Calcula estadísticas descriptivas (media, mínimo, máximo y desviación estándar)
+para una o más estaciones meteorológicas.
+
+ ```r
+# Leer datos de dos estaciones
+df1 <- leer_datos_estacion("NH0910", "data/NH0910.csv")
+df2 <- leer_datos_estacion("NH0437", "data/NH0437.csv")
+ ```
+ Generar resumen de temperatura
+```r
+tabla_resumen_temperatura(df1, df2)
+```
+💡 Devuelve una tabla con los valores resumen:
+```
+
+```r
+#>   estacion  media minimo maximo  desv     n
+#> 1 NH0910    17.6   0.0   35.2   6.1  15500
+#> 2 NH0437    20.2   2.1   36.0   5.8  18000
+```
+
+3️⃣ grafico_temperatura_mensual()
+
+Grafica la temperatura promedio mensual de una o más estaciones.
+
+ ```r
+grafico_temperatura_mensual(df1, titulo = "🌡️ Temperatura mensual NH0910")
+ ```
+📊 Muestra un gráfico de líneas generado con ggplot2 que ilustra la evolución de la temperatura promedio mensual.
+
+🧩 Conclusión
+
+El paquete `estacionestiida` facilita la obtención y análisis de información climática histórica.\
+Sus funciones permiten automatizar el proceso de descarga, limpieza y visualización de datos meteorológicos.
+
+
+
+🚀 Este paquete es solo de práctica educativa, no debe usarse con fines profesionales.
+
+
+**Autores:** Tomás Taylor, Alvaro Farias.
+---
+

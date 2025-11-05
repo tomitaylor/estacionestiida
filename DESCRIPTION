@@ -1,21 +1,30 @@
 Package: estacionestiida
-Title: Funciones para leer y analizar datos de estaciones meteorológicas
-Version: 0.0.0.9000
-Authors@R: 
-    person("Tomas", "Taylor", , "ttaylor@mail.austral.edu.ar", role = c("aut", "cre"))
-    person("Alvaro", "Farias", email = "afarias2@mail.austral.edu.ar", role = "aut")
-Description: Este paquete permite descargar, leer y visualizar datos de estaciones del SMN, ademas, permite explorar variables climaticas mediante funciones simples.
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
-Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.3
-Imports: 
+Title: Herramientas para Datos de Estaciones Meteorológicas
+Version: 0.1.0
+Authors@R: c(
+    person("Tomás", "Taylor", , "ttaylor@mail.austral.edu.ar", role = c("aut", "cre")),
+    person("Álvaro", "Farías", , "afarias2@mail.austral.edu.ar", role = "aut")
+  )
+Description: Paquete didáctico que permite leer, resumir y graficar datos
+    meteorológicos del Servicio Meteorológico Nacional (SMN).
+License: MIT + file LICENSE
+URL: https://github.com/tomitaylor/estacionestiida
+BugReports: https://github.com/tomitaylor/estacionestiida/issues
+Depends: 
+    R (>= 3.5.0)
+Imports:
     cli,
     dplyr,
     ggplot2,
     lubridate,
     readr,
+    stats,
     utils
-URL: https://github.com/tomitaylor/estacionestiida
-BugReports: https://github.com/tomitaylor/estacionestiida/issues
+Suggests:
+    knitr,
+    rmarkdown
+VignetteBuilder: 
+    knitr
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
