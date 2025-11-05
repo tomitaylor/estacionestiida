@@ -34,5 +34,5 @@ grafico_temperatura_mensual(df1, titulo = "Temp promedio NH0910")
 ```
 ## 👥 Autores
 
-Tomás Taylor
+Tomás Taylor , 
 Alvaro Farias
