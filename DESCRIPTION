@@ -17,3 +17,5 @@ Imports:
     lubridate,
     readr,
     utils
+URL: https://github.com/tomitaylor/estacionestiida
+BugReports: https://github.com/tomitaylor/estacionestiida/issues
