@@ -9,7 +9,7 @@ vignette: >
 
 ## 🧭 Propósito del paquete
 
-El paquete **estacionestidita** fue creado con fines didácticos para practicar el desarrollo de paquetes en R.  
+El paquete **estacionestiida** fue creado con fines didácticos para practicar el desarrollo de paquetes en R.  
 Permite **leer, resumir y graficar** datos meteorológicos del Servicio Meteorológico Nacional (SMN).
 
 ---
@@ -20,11 +20,14 @@ Podés instalarlo desde GitHub :
 
 ```r
 # install.packages("devtools")
-devtools::install_github("tomitaylor/estacionestidita")
-Y luego cargarlo:
+devtools::install_github("tomitaylor/estacionestiida")
 ```
+Y luego cargarlo:
+
  ```r
-library(estacionestidita)
+library(estacionestiida)
+library(dplyr)
+
  ```
 🌡️ Funciones principales:
 
@@ -37,6 +40,9 @@ Lee los datos de una estación meteorológica.
 df1 <- leer_datos_estacion("NH0910", "data/NH0910.csv")
 head(df1)
  ```
+ **Qué devuelve**: un `data.frame` con columnas estandarizadas (ej., `fecha`, `temp_abrigo`, `humedad_media_8_14_20`). Queda listo para resumir y graficar.
+
+
 2️⃣ tabla_resumen_temperatura()
 
 Calcula estadísticas descriptivas (media, mínimo, máximo y desviación estándar)
@@ -52,13 +58,15 @@ df2 <- leer_datos_estacion("NH0437", "data/NH0437.csv")
 tabla_resumen_temperatura(df1, df2)
 ```
 💡 Devuelve una tabla con los valores resumen:
-```
+
 
 ```r
 #>   estacion  media minimo maximo  desv     n
 #> 1 NH0910    17.6   0.0   35.2   6.1  15500
 #> 2 NH0437    20.2   2.1   36.0   5.8  18000
 ```
+**Cómo leer la tabla**: `media` resume la temperatura típica; `minimo` y `maximo` muestran extremos observados; `desv` indica variabilidad. Útil para comparar estaciones entre sí.
+
 
 3️⃣ grafico_temperatura_mensual()
 
@@ -68,6 +76,27 @@ Grafica la temperatura promedio mensual de una o más estaciones.
 grafico_temperatura_mensual(df1, titulo = "🌡️ Temperatura mensual NH0910")
  ```
 📊 Muestra un gráfico de líneas generado con ggplot2 que ilustra la evolución de la temperatura promedio mensual.
+
+**Qué mirar**: estacionalidad (meses más cálidos/fríos) y diferencias de nivel entre estaciones. Un corrimiento vertical sugiere microclimas distintos.
+
+## 🧪 Ejemplo de uso de todas las funciones juntas
+
+```r
+# 1) Leer dos estaciones (usa/crea los CSV si no existen)
+df1 <- leer_datos_estacion("NH0910", "data/NH0910.csv")
+df2 <- leer_datos_estacion("NH0437", "data/NH0437.csv")
+
+# 2) Resumen comparativo de temperatura
+resumen <- tabla_resumen_temperatura(df1, df2)
+resumen
+
+# 3) Graficar temperatura mensual comparada
+df_union <- dplyr::bind_rows(df1, df2)
+grafico_temperatura_mensual(df_union, titulo = "🌡️ Temperatura mensual — NH0910 vs NH0437")
+
+
+```
+
 
 🧩 Conclusión
 
