@@ -3,6 +3,13 @@
 > Paquete de práctica para la materia **Programación II**  
 > 📦 Desarrollado con fines educativos — *no está pensado para uso real*
 
+<!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![R-CMD-check](https://github.com/tomitaylor/estacionestiida/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/tomitaylor/estacionestiida/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/tomitaylor/estacionestiida/branch/main/graph/badge.svg)](https://app.codecov.io/gh/tomitaylor/estacionestiida)
+<!-- badges: end -->
+
+
 ---
 
 ## 🧠 Descripción
