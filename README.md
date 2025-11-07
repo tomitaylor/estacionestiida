@@ -51,6 +51,7 @@ También podés:
 - Reportar errores o sugerencias desde la pestaña *Issues* de GitHub.  
 - Proponer mejoras enviando un *Pull Request*.  
 - Leer y seguir el [Código de Conducta](CODE_OF_CONDUCT.md).
+  📜 Para más detalles, consultá el [Código de Conducta](CODE_OF_CONDUCT.md).
 
 ## 👥 Autores
 
