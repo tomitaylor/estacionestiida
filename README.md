@@ -1,7 +1,4 @@
-<h1 align="center">
-  <img src="man/figures/logo.png" alt="logo" width="90" style="vertical-align: middle; margin-right: 10px;">
-  🌦️estacionestiida ️
-</h1>
+# estacionestiida 🌦️ <img src="man/figures/logo.png" width="80" align="right" />
 
 
 > Paquete de práctica para la materia **Programación II**  
