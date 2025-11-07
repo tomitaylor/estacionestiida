@@ -44,17 +44,19 @@ grafico_temperatura_mensual(df1, titulo = "Temp promedio NH0910")
 
 ## Ejemplo de uso 🌦️
 
-```{r ejemplo-uso, message=FALSE, warning=FALSE, fig.width=7, fig.height=4}
-# Carga el paquete del proyecto al knit (si no está instalado)
-if (!requireNamespace("estacionestiida", quietly = TRUE)) devtools::load_all(".")
+A continuación se muestra un ejemplo de cómo usar las funciones principales del paquete **estacionestiida**.
 
+```{r ejemplo-uso, message=FALSE, warning=FALSE, fig.cap="Temperatura promedio mensual (NH0437)", fig.width=7, fig.height=4}
 library(estacionestiida)
 
-# Opción A: usar la función "real"
-datos   <- leer_datos_estacion("NH0437")
-resumen <- tabla_resumen_temperatura(datos)
-p <- grafico_temperatura_mensual(resumen)
-print(p)  # <- asegura que el plot aparezca
+# Usamos el dataset incluido para que el ejemplo sea rápido
+data(meteo_demo)
+
+# Resumen mensual de temperatura
+resumen <- tabla_resumen_temperatura(meteo_demo)
+
+# Gráfico de temperatura
+grafico_temperatura_mensual(resumen)
 ```
 
 
