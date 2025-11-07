@@ -55,7 +55,7 @@ datos   <- leer_datos_estacion("NH0437")
 resumen <- tabla_resumen_temperatura(datos)
 p <- grafico_temperatura_mensual(resumen)
 print(p)  # <- asegura que el plot aparezca
-
+```
 
 
 
