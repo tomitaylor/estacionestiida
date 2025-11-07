@@ -41,6 +41,17 @@ Grafica la temperatura promedio mensual de una o más estaciones en un gráfico 
 ```r
 grafico_temperatura_mensual(df1, titulo = "Temp promedio NH0910")
 ```
+
+## Cómo contribuir 🤝
+
+Para contribuir con **estacionestiida** podés leer la guía completa en  
+👉 [CONTRIBUTING.md](.github/CONTRIBUTING.md)
+
+También podés:
+- Reportar errores o sugerencias desde la pestaña *Issues* de GitHub.  
+- Proponer mejoras enviando un *Pull Request*.  
+- Leer y seguir el [Código de Conducta](CODE_OF_CONDUCT.md).
+
 ## 👥 Autores
 
 Tomás Taylor , 
