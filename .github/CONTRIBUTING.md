@@ -1,47 +1,59 @@
-# Contributing to estacionestiida
+# Guía para contribuir al paquete **estacionestiida**
 
-This outlines how to propose a change to estacionestiida.
-For a detailed discussion on contributing to this and other tidyverse packages, please see the [development contributing guide](https://rstd.io/tidy-contrib) and our [code review principles](https://code-review.tidyverse.org/).
+¡Gracias por tu interés en contribuir! 🙌  
+Este documento explica cómo podés colaborar en el desarrollo y mejora del paquete **estacionestiida**.
 
-## Fixing typos
+---
 
-You can fix typos, spelling mistakes, or grammatical errors in the documentation directly using the GitHub web interface, as long as the changes are made in the _source_ file. 
-This generally means you'll need to edit [roxygen2 comments](https://roxygen2.r-lib.org/articles/roxygen2.html) in an `.R`, not a `.Rd` file. 
-You can find the `.R` file that generates the `.Rd` by reading the comment in the first line.
+## 💡 Cómo podés ayudar
 
-## Bigger changes
+Podés contribuir de varias maneras:
 
-If you want to make a bigger change, it's a good idea to first file an issue and make sure someone from the team agrees that it’s needed. 
-If you’ve found a bug, please file an issue that illustrates the bug with a minimal 
-[reprex](https://www.tidyverse.org/help/#reprex) (this will also help you write a unit test, if needed).
-See our guide on [how to create a great issue](https://code-review.tidyverse.org/issues/) for more advice.
+1. **Reportando errores (bugs)**  
+   Si encontrás un problema, abrí un *Issue* en el repositorio de GitHub con una descripción clara, los pasos para reproducirlo y el resultado esperado.  
+   👉 [https://github.com/tomitaylor/estacionestiida/issues](https://github.com/tomitaylor/estacionestiida/issues)
 
-### Pull request process
+2. **Proponiendo mejoras o nuevas funciones**  
+   Si tenés una idea para mejorar el paquete o sumar nuevas funcionalidades:
+   - Hacé un *fork* del repositorio.  
+   - Creá una nueva rama con un nombre descriptivo, por ejemplo:  
+     `mejora-graficos` o `agrega-nueva-funcion`.  
+   - Implementá tus cambios y verificá que pasen los *checks*:  
+     ```r
+     devtools::check()
+     ```
+   - Abrí un *Pull Request* explicando tus cambios y el motivo.
 
-*   Fork the package and clone onto your computer. If you haven't done this before, we recommend using `usethis::create_from_github("tomitaylor/estacionestiida", fork = TRUE)`.
+3. **Sugerencias sobre la documentación**  
+   Podés corregir errores tipográficos, mejorar ejemplos o ampliar explicaciones.  
+   Cada contribución ayuda a que el paquete sea más claro para la comunidad.
 
-*   Install all development dependencies with `devtools::install_dev_deps()`, and then make sure the package passes R CMD check by running `devtools::check()`. 
-    If R CMD check doesn't pass cleanly, it's a good idea to ask for help before continuing. 
-*   Create a Git branch for your pull request (PR). We recommend using `usethis::pr_init("brief-description-of-change")`.
+---
 
-*   Make your changes, commit to git, and then create a PR by running `usethis::pr_push()`, and following the prompts in your browser.
-    The title of your PR should briefly describe the change.
-    The body of your PR should contain `Fixes #issue-number`.
+## 🧩 Requisitos para los aportes
 
-*  For user-facing changes, add a bullet to the top of `NEWS.md` (i.e. just below the first header). Follow the style described in <https://style.tidyverse.org/news.html>.
+- El código debe seguir las buenas prácticas del tidyverse (claridad, legibilidad, uso de `%>%` o `|>`).
+- Los nombres de las funciones y variables deben estar en minúsculas y con guiones bajos (`snake_case`).
+- Todos los cambios deben incluir:
+  - Comentarios claros en el código.
+  - Ejemplos en la documentación.
+  - Tests que verifiquen el correcto funcionamiento.
 
-### Code style
+---
 
-*   New code should follow the tidyverse [style guide](https://style.tidyverse.org). 
-    You can use [Air](https://posit-dev.github.io/air/) to apply this style, but please don't restyle code that has nothing to do with your PR.  
+## 📜 Código de Conducta
 
-*  We use [roxygen2](https://cran.r-project.org/package=roxygen2), with [Markdown syntax](https://cran.r-project.org/web/packages/roxygen2/vignettes/rd-formatting.html), for documentation.  
+Todas las interacciones en el proyecto deben respetar el  
+[Código de Conducta](../CODE_OF_CONDUCT.md).  
+Cualquier comportamiento inapropiado puede ser reportado al autor del paquete.
 
-*  We use [testthat](https://cran.r-project.org/package=testthat) for unit tests. 
-   Contributions with test cases included are easier to accept.  
+---
 
-## Code of Conduct
+## 📧 Contacto
 
-Please note that the estacionestiida project is released with a
-[Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this
-project you agree to abide by its terms.
+Si tenés dudas o querés hablar directamente sobre una contribución,  
+podés escribir a **tomastaylor01@gmail.com** o a **alvarofariasnb09@gmail.com**
+
+---
+
+¡Gracias por hacer que **estacionestiida** sea mejor! 💪
