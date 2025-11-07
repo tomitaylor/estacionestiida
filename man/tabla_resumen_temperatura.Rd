@@ -4,15 +4,15 @@
 \alias{tabla_resumen_temperatura}
 \title{Generar una tabla resumen de temperatura}
 \usage{
-tabla_resumen_temperatura(...)
+tabla_resumen_temperatura(df)
 }
 \arguments{
-\item{...}{Uno o más data frames devueltos por \code{leer_datos_estacion()}}
+\item{df}{Data frame devuelto por \code{leer_datos_estacion()}}
 }
 \value{
-Un data frame con los valores resumen de temperatura
+Data frame con columnas: estacion, media, minimo, maximo, desv, n
 }
 \description{
-Calcula, para cada estación, la media, mínimo, máximo y desviación
-estándar de la temperatura a 150 cm de abrigo.
+Calcula media, mínimo, máximo, desviación y cantidad de datos válidos
+de la columna \code{temperatura_abrigo_150cm}.
 }
