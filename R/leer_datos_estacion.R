@@ -27,10 +27,19 @@ leer_datos_estacion <- function(id_estacion, ruta_archivo) {
 
   url_src <- catalogo[[id_estacion]]
 
-  # si ya esta, leo y chau (early return)
+  # si ya esta, leo
   if (file.exists(ruta_archivo)) {
     cli::cli_inform("Encontre archivo local -> leyendo {ruta_archivo}...")
     return(readr::read_csv(ruta_archivo, show_col_types = FALSE))
+  }
+  leer_datos_estacion <- function(estacion, ruta_archivo = NULL, ...) {
+    # si no te pasan ruta, usa tempdir() y un nombre por defecto
+    if (is.null(ruta_archivo) || !nzchar(ruta_archivo)) {
+      ruta_archivo <- file.path(tempdir(), paste0(estacion, ".csv"))
+    }
+    dir.create(dirname(ruta_archivo), showWarnings = FALSE, recursive = TRUE)
+
+
   }
 
   # crear carpeta y descargar
