@@ -11,7 +11,7 @@ License: MIT + file LICENSE
 URL: https://github.com/tomitaylor/estacionestiida, https://tomitaylor.github.io/estacionestiida/
 BugReports: https://github.com/tomitaylor/estacionestiida/issues
 Depends: 
-    R (>= 3.5.0)
+    R (>= 4.1.0)
 Imports:
     cli,
     dplyr,
