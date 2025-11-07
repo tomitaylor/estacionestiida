@@ -1,3 +1,9 @@
+<p align="center">
+  <img src="man/figures/logo.png" width="220" alt="logo estacionestiida">
+</p>
+
+# estacionestiida 🌦️
+
 # 🌦️ estacionestiida
 
 > Paquete de práctica para la materia **Programación II**  
