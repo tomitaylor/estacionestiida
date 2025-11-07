@@ -13,6 +13,6 @@ tabla_resumen_temperatura(df)
 Data frame con columnas: estacion, media, minimo, maximo, desv, n
 }
 \description{
-Calcula media, mínimo, máximo, desviación y cantidad de datos válidos
+Calcula media, minimo, maximo, desviacion y cantidad de datos validos
 de la columna \code{temperatura_abrigo_150cm}.
 }
