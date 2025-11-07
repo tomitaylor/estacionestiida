@@ -28,10 +28,12 @@ estaciones del SMN 🇦🇷.
 ## Instalacion
 
 Podes instalar la version en desarrolo del paquete en github:
+
 ``` r
 install.packages(“pak”)
 pak::pak(“tomitaylor/estacionestiida”)
-``` 
+```
+
 ## Como usar el paquete
 
 Primero que nada deberas correr
