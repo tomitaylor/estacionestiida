@@ -41,11 +41,11 @@ Grafica la temperatura promedio mensual de una o más estaciones en un gráfico 
 ```r
 grafico_temperatura_mensual(df1, titulo = "Temp promedio NH0910")
 ```
-## Ejemplo de uso 🧩
+## Ejemplo de uso 🌦️
 
 A continuación se muestra un ejemplo de cómo usar las funciones principales del paquete **estacionestiida**.
 
-```r
+```{r example-uso, message=FALSE, warning=FALSE, fig.width=6, fig.height=4}
 library(estacionestiida)
 
 # Leer los datos de la estación NH0437
@@ -56,6 +56,7 @@ resumen <- tabla_resumen_temperatura(datos)
 
 # Graficar la temperatura promedio mensual
 grafico_temperatura_mensual(resumen)
+```
 
 
 ## Cómo contribuir 🤝
