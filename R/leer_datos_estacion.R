@@ -1,16 +1,21 @@
-#' Leer datos de una estacion meteorologica
+#' Leer datos de una estación meteorológica
 #'
-#' Descarga (si no existe) y lee los datos de una estacion del SMN.
+#' Descarga (si no existe) y lee los datos de una estación del SMN.
 #'
-#' @param id_estacion Codigo de la estacion (por ejemplo "NH0437")
-#' @param ruta_archivo Ruta donde se guardara el archivo CSV
+#' @param id_estacion Código de la estación (por ejemplo "NH0437").
+#' @param ruta_archivo Ruta donde se guardará el archivo CSV.
 #'
-#' @return Un data frame con los datos de la estacion
+#' @return Un data frame con los datos de la estación.
+#'
+#' @examples
+#' # Ejemplo simple
+#' datos <- leer_datos_estacion("NH0437", "datos/NH0437.csv")
+#' head(datos)
+#'
 #' @export
-
-
 leer_datos_estacion <- function(id_estacion, ruta_archivo) {
-  # catalogo de URLs validas
+
+  # catálogo de URLs válidas
   catalogo <- list(
     metadatos = "https://raw.githubusercontent.com/rse-r/intro-programacion/main/datos/metadatos_completos.csv",
     NH0472    = "https://raw.githubusercontent.com/rse-r/intro-programacion/main/datos/NH0472.csv",
@@ -20,26 +25,17 @@ leer_datos_estacion <- function(id_estacion, ruta_archivo) {
     NH0437    = "https://raw.githubusercontent.com/rse-r/intro-programacion/main/datos/NH0437.csv"
   )
 
-  # validacion ID
+  # validación ID
   if (!id_estacion %in% names(catalogo)) {
-    cli::cli_abort("ID de estacion desconocido: {id_estacion}. Usa uno de: {paste(names(catalogo), collapse = ', ')}")
+    cli::cli_abort("ID de estación desconocido: {id_estacion}. Usa uno de: {paste(names(catalogo), collapse = ', ')}")
   }
 
   url_src <- catalogo[[id_estacion]]
 
-  # si ya esta, leo
+  # si ya existe, leo
   if (file.exists(ruta_archivo)) {
-    cli::cli_inform("Encontre archivo local -> leyendo {ruta_archivo}...")
+    cli::cli_inform("Encontré archivo local -> leyendo {ruta_archivo}...")
     return(readr::read_csv(ruta_archivo, show_col_types = FALSE))
-  }
-  leer_datos_estacion <- function(estacion, ruta_archivo = NULL, ...) {
-    # si no te pasan ruta, usa tempdir() y un nombre por defecto
-    if (is.null(ruta_archivo) || !nzchar(ruta_archivo)) {
-      ruta_archivo <- file.path(tempdir(), paste0(estacion, ".csv"))
-    }
-    dir.create(dirname(ruta_archivo), showWarnings = FALSE, recursive = TRUE)
-
-
   }
 
   # crear carpeta y descargar
@@ -51,3 +47,4 @@ leer_datos_estacion <- function(id_estacion, ruta_archivo) {
   cli::cli_inform("Lectura OK para {id_estacion}.")
   datos
 }
+
