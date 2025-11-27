@@ -9,9 +9,11 @@
 #' @return Un grafico de ggplot2.
 #'
 #' @examples
-#' # Ejemplo de uso:
-#' df <- leer_datos_estacion("NH0437", "datos/NH0437.csv")
+#' \dontrun{
+#' df <- leer_datos_estacion("NH0437", "NH0437.csv")
 #' grafico_temperatura_mensual(df)
+#' }
+
 #'
 #' @export
 grafico_temperatura_mensual <- function(df, colores = NULL, titulo = "Temperatura promedio") {

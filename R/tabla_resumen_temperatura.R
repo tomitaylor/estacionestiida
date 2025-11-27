@@ -6,12 +6,12 @@
 #' @param df Data frame devuelto por `leer_datos_estacion()`
 #'
 #' @return Data frame con columnas: estacion, media, minimo, maximo, desv, n
-#'
-#' @examples
+#'#' @examples
+#' \dontrun{
 #' # Ejemplo de uso:
-#' df <- leer_datos_estacion("NH0437", "datos/NH0437.csv")
+#' df <- leer_datos_estacion("NH0437", "NH0437.csv")
 #' tabla_resumen_temperatura(df)
-#'
+#' }
 #' @export
 #' @importFrom rlang .data
 #' @importFrom cli cli_inform

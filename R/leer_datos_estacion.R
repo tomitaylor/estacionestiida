@@ -1,21 +1,23 @@
-#' Leer datos de una estacion meteorologica
+#' Leer datos de una estación meteorológica
 #'
-#' Descarga (si no existe) y lee los datos de una estacion del SMN.
+#' Descarga (si no existe) y lee los datos de una estación del SMN.
 #'
-#' @param id_estacion Codigo de la estacion (por ejemplo "NH0437").
-#' @param ruta_archivo Ruta donde se guardara el archivo CSV.
+#' @param id_estacion Código de la estación (por ejemplo "NH0437").
+#' @param ruta_archivo Ruta donde se guardará el archivo CSV.
 #'
-#' @return Un data frame con los datos de la estacion.
+#' @return Un data frame con los datos de la estación.
 #'
 #' @examples
-#' # Ejemplo simple
-#' datos <- leer_datos_estacion("NH0437", "datos/NH0437.csv")
+#' \dontrun{
+#' # Ejemplo simple (no se ejecuta en R CMD check)
+#' datos <- leer_datos_estacion("NH0437", "NH0437.csv")
 #' head(datos)
+#' }
 #'
 #' @export
 leer_datos_estacion <- function(id_estacion, ruta_archivo) {
 
-  # catalogo de URLs validas
+  # Catálogo de URLs válidas
   catalogo <- list(
     metadatos = "https://raw.githubusercontent.com/rse-r/intro-programacion/main/datos/metadatos_completos.csv",
     NH0472    = "https://raw.githubusercontent.com/rse-r/intro-programacion/main/datos/NH0472.csv",
@@ -25,17 +27,32 @@ leer_datos_estacion <- function(id_estacion, ruta_archivo) {
     NH0437    = "https://raw.githubusercontent.com/rse-r/intro-programacion/main/datos/NH0437.csv"
   )
 
-  # si la ruta no existe, descargarla
+  # --- 1) CONTROL: el ID debe existir en el catálogo ---
+  if (!(id_estacion %in% names(catalogo))) {
+    stop("El ID de estación no existe en el catálogo.")
+  }
+
+  # --- 2) Si el archivo NO existe, descargarlo ---
   if (!file.exists(ruta_archivo)) {
+
+    url <- catalogo[[id_estacion]]
+
+    if (is.null(url)) {
+      stop("No se encontró una URL asociada al ID proporcionado.")
+    }
+
     utils::download.file(
-      url = catalogo[[id_estacion]],
-      destfile = ruta_archivo
+      url      = url,
+      destfile = ruta_archivo,
+      quiet    = TRUE
     )
   }
 
-  # leer CSV
+  # --- 3) Leer CSV ---
   datos <- utils::read.csv(ruta_archivo, stringsAsFactors = FALSE)
+
   return(datos)
 }
+
 
 
