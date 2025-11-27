@@ -2,7 +2,7 @@
 % Please edit documentation in R/grafico_temperatura_mensual.R
 \name{grafico_temperatura_mensual}
 \alias{grafico_temperatura_mensual}
-\title{Gráfico de temperatura mensual}
+\title{Grafico de temperatura mensual}
 \usage{
 grafico_temperatura_mensual(
   df,
@@ -15,17 +15,18 @@ grafico_temperatura_mensual(
 
 \item{colores}{Vector opcional de colores.}
 
-\item{titulo}{Título del gráfico.}
+\item{titulo}{Titulo del grafico.}
 }
 \value{
-Un gráfico de ggplot2.
+Un grafico de ggplot2.
 }
 \description{
-Muestra la temperatura promedio mensual de una o más estaciones.
+Muestra la temperatura promedio mensual de una o mas estaciones.
 }
 \examples{
-# Ejemplo de uso:
-df <- leer_datos_estacion("NH0437", "datos/NH0437.csv")
+\dontrun{
+df <- leer_datos_estacion("NH0437", "NH0437.csv")
 grafico_temperatura_mensual(df)
+}
 
 }

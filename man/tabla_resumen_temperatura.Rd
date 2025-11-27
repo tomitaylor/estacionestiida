@@ -13,12 +13,14 @@ tabla_resumen_temperatura(df)
 Data frame con columnas: estacion, media, minimo, maximo, desv, n
 }
 \description{
-Calcula media, mínimo, máximo, desviación estándar y cantidad de datos válidos
+Calcula media, minimo, maximo, desviacion estandar y cantidad de datos validos
 de la columna \code{temperatura_abrigo_150cm}.
 }
 \examples{
+\dontrun{
 # Ejemplo de uso:
-df <- leer_datos_estacion("NH0437", "datos/NH0437.csv")
+df <- leer_datos_estacion("NH0437", "NH0437.csv")
 tabla_resumen_temperatura(df)
+}
 
 }

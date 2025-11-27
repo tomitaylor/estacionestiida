@@ -18,8 +18,10 @@ Un data frame con los datos de la estación.
 Descarga (si no existe) y lee los datos de una estación del SMN.
 }
 \examples{
-# Ejemplo simple
-datos <- leer_datos_estacion("NH0437", "datos/NH0437.csv")
+\dontrun{
+# Ejemplo simple (no se ejecuta en R CMD check)
+datos <- leer_datos_estacion("NH0437", "NH0437.csv")
 head(datos)
+}
 
 }
