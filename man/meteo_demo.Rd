@@ -23,7 +23,10 @@ Subconjunto de 100 registros de la estación meteorológica NH0437 del SMN.
 Incluye variables básicas de temperatura y humedad, útiles para ejemplos y tests.
 }
 \examples{
+\dontrun{
 data(meteo_demo)
 head(meteo_demo)
 }
+}
 \keyword{datasets}
+
