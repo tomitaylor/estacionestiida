@@ -1,12 +1,12 @@
-#' Gráfico de temperatura mensual
+#' Grafico de temperatura mensual
 #'
-#' Muestra la temperatura promedio mensual de una o más estaciones.
+#' Muestra la temperatura promedio mensual de una o mas estaciones.
 #'
 #' @param df Data frame con las columnas id, fecha y temperatura_abrigo_150cm.
 #' @param colores Vector opcional de colores.
-#' @param titulo Título del gráfico.
+#' @param titulo Titulo del grafico.
 #'
-#' @return Un gráfico de ggplot2.
+#' @return Un grafico de ggplot2.
 #'
 #' @examples
 #' # Ejemplo de uso:
@@ -31,16 +31,17 @@ grafico_temperatura_mensual <- function(df, colores = NULL, titulo = "Temperatur
   }
   pal <- stats::setNames(colores, estaciones)
 
-  # gráfico
+  # grafico
   ggplot2::ggplot(df_mes, ggplot2::aes(x = mes, y = prom, color = id, group = id)) +
     ggplot2::geom_line(linewidth = 1) +
     ggplot2::geom_point(size = 1.8) +
-    ggplot2::scale_color_manual(values = pal, name = "Estación") +
-    ggplot2::labs(title = titulo, x = "Mes", y = "Temp. promedio (°C)") +
+    ggplot2::scale_color_manual(values = pal, name = "Estacion") +
+    ggplot2::labs(title = titulo, x = "Mes", y = "Temp. promedio (C)") +
     ggplot2::theme_minimal(base_size = 12) +
     ggplot2::theme(
       legend.position = "bottom",
       plot.title = ggplot2::element_text(face = "bold")
     )
 }
+
 
