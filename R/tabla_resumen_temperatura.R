@@ -9,7 +9,6 @@
 #'
 #' @examples
 #' \dontrun{
-#' # Ejemplo de uso:
 #' df <- leer_datos_estacion("NH0437", "NH0437.csv")
 #' tabla_resumen_temperatura(df)
 #' }
@@ -21,31 +20,24 @@
 tabla_resumen_temperatura <- function(df) {
   stopifnot(is.data.frame(df))
 
-  # Validación temprana
   req <- c("fecha", "temperatura_abrigo_150cm")
   faltan <- setdiff(req, names(df))
   if (length(faltan) > 0) {
     stop("Faltan columnas requeridas: ", paste(faltan, collapse = ", "))
   }
 
-  # Identificamos la estación si tiene columna 'id'
   est <- if ("id" %in% names(df)) unique(df$id)[1] else NA_character_
 
-  # Cálculo de resumen
   resumen <- data.frame(
     estacion = est,
     media  = mean(df$temperatura_abrigo_150cm, na.rm = TRUE),
     minimo = min(df$temperatura_abrigo_150cm,  na.rm = TRUE),
     maximo = max(df$temperatura_abrigo_150cm,  na.rm = TRUE),
-    desv   = stats::sd(df$temperatura_abrigo_150cm, na.rm = TRUE),
+    desv   = stats::sd(df$temperatura_abrigo_150cm,   na.rm = TRUE),
     n      = sum(!is.na(df$temperatura_abrigo_150cm))
   )
 
-  cli::cli_inform(
-    "Resumen generado para 1 estación ({est}).",
-    .envir = environment()
-  )
-
+  cli::cli_inform("Resumen generado para 1 estacion ({est}).")
   return(resumen)
 }
 
