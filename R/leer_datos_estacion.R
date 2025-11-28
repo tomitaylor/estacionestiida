@@ -1,11 +1,11 @@
-#' Leer datos de una estación meteorológica
+#' Leer datos de una estacion meteorologica
 #'
-#' Descarga (si no existe) y lee los datos de una estación del SMN.
+#' Descarga (si no existe) y lee los datos de una estacion del SMN.
 #'
-#' @param id_estacion Código de la estación (por ejemplo "NH0437").
-#' @param ruta_archivo Ruta donde se guardará el archivo CSV.
+#' @param id_estacion Codigo de la estacion (por ejemplo "NH0437").
+#' @param ruta_archivo Ruta donde se guardara el archivo CSV.
 #'
-#' @return Un data frame con los datos de la estación.
+#' @return Un data frame con los datos de la estacion.
 #'
 #' @examples
 #' \dontrun{
@@ -17,7 +17,7 @@
 #' @export
 leer_datos_estacion <- function(id_estacion, ruta_archivo) {
 
-  # Catálogo de URLs válidas
+  # Catalogo de URLs validas
   catalogo <- list(
     metadatos = "https://raw.githubusercontent.com/rse-r/intro-programacion/main/datos/metadatos_completos.csv",
     NH0472    = "https://raw.githubusercontent.com/rse-r/intro-programacion/main/datos/NH0472.csv",
@@ -27,9 +27,9 @@ leer_datos_estacion <- function(id_estacion, ruta_archivo) {
     NH0437    = "https://raw.githubusercontent.com/rse-r/intro-programacion/main/datos/NH0437.csv"
   )
 
-  # --- 1) CONTROL: el ID debe existir en el catálogo ---
+  # --- 1) CONTROL: el ID debe existir en el catalogo ---
   if (!(id_estacion %in% names(catalogo))) {
-    stop("El ID de estación no existe en el catálogo.")
+    stop("El ID de estacion no existe en el catalogo.")
   }
 
   # --- 2) Si el archivo NO existe, descargarlo ---
@@ -38,7 +38,7 @@ leer_datos_estacion <- function(id_estacion, ruta_archivo) {
     url <- catalogo[[id_estacion]]
 
     if (is.null(url)) {
-      stop("No se encontró una URL asociada al ID proporcionado.")
+      stop("No se encontro una URL asociada al ID proporcionado.")
     }
 
     utils::download.file(
